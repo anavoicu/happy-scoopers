@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/7/2020 10:29:51 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BANANA"
+  DTS:CreatorName="BANANA\anavo"
+  DTS:DTSID="{F4C7DFDB-9A14-40B3-A311-12B1D12859BF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionGUID="{E4F18A07-FBB0-43DC-AADC-E4694E0985EE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>

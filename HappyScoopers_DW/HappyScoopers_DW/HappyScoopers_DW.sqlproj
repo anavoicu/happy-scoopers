@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>HappyScoopers_DW</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{0080dbf7-ca8b-4f05-94fe-8c355425baed}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql140DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>HappyScoopers_DW</RootNamespace>
+    <AssemblyName>HappyScoopers_DW</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <GenerateCreateScript>True</GenerateCreateScript>
+    <IncludeSchemaNameInFileName>True</IncludeSchemaNameInFileName>
+    <PermissionSet>EXTERNAL_ACCESS</PermissionSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>CS0000	</NoWarn>
+    <SuppressTSqlWarnings>SQL71562;</SuppressTSqlWarnings>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="int\" />
+    <Folder Include="int\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Security\" />
+    <Folder Include="int\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Security\int.sql" />
+    <Build Include="dbo\Tables\Staging_Sales.sql" />
+    <Build Include="dbo\Tables\Staging_Product.sql" />
+    <Build Include="dbo\Tables\Staging_Location.sql" />
+    <Build Include="dbo\Tables\Staging_Employee.sql" />
+    <Build Include="dbo\Tables\Staging_Promotion.sql" />
+    <Build Include="dbo\Tables\Staging_PaymentType.sql" />
+    <Build Include="dbo\Tables\Staging_Customer.sql" />
+	<Build Include="dbo\Tables\Dim_Promotion.sql" />
+    <Build Include="dbo\Tables\Dim_Product.sql" />
+    <Build Include="dbo\Tables\Dim_PaymentType.sql" />
+    <Build Include="dbo\Tables\Dim_Location.sql" />
+    <Build Include="dbo\Tables\Dim_Employee.sql" />
+    <Build Include="dbo\Tables\Dim_Date.sql" />
+    <Build Include="dbo\Tables\Dim_Customer.sql" />
+    <Build Include="dbo\Tables\Fact_Sales.sql" />
+    <Build Include="int\Tables\Lineage.sql" />
+    <Build Include="int\Tables\IncrementalLoads.sql" />
+	<Build Include="dbo\Views\vw_Products.sql" />
+    <Build Include="dbo\Views\vw_Location.sql" />
+    <Build Include="dbo\Views\vw_Employees.sql" />
+    <Build Include="dbo\Stored Procedures\Load_FactSales.sql" />
+    <Build Include="dbo\Stored Procedures\Load_DimProduct.sql" />
+    <Build Include="dbo\Stored Procedures\Load_DimLocation.sql" />
+    <Build Include="dbo\Stored Procedures\Load_DimEmployee.sql" />
+    <Build Include="dbo\Stored Procedures\Load_DimDate.sql" />
+    <Build Include="dbo\Stored Procedures\Test_LoadFact.sql" />
+    <Build Include="dbo\Stored Procedures\Test_LoadDimension.sql" />
+    <Build Include="dbo\Stored Procedures\Load_DimPromotion.sql" />
+    <Build Include="dbo\Stored Procedures\Load_DimPaymentType.sql" />
+    <Build Include="dbo\Stored Procedures\Load_DimCustomer.sql" />
+    <Build Include="int\Stored Procedures\Get_LineageKey.sql" />
+    <Build Include="int\Stored Procedures\Get_LastLoadedDate.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\Microsoft\SQLDB\Extensions\SqlServer\140\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\140\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+    <ArtifactReference Include="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\Microsoft\SQLDB\Extensions\SqlServer\140\SqlSchemas\msdb.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\140\SqlSchemas\msdb.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>msdb</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+    <ArtifactReference Include="..\output\HappyScoopers_Demo.dacpac">
+      <HintPath>..\output\HappyScoopers_Demo.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>HappyScoopers_Demo</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="HappyScoopers_Demo">
+      <DefaultValue>HappyScoopers_Demo</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>
