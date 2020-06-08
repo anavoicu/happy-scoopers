@@ -97,6 +97,8 @@
     <PostDeploy Include="Populate Database.sql" />
   </ItemGroup>
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(ProjectDir)bin\debug\HappyScoopers_Demo.dacpac" "$(SolutionDir)output\HappyScoopers_Demo.dacpac"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(ProjectDir)bin\debug\HappyScoopers_Demo.dacpac" "$(SolutionDir)output\HappyScoopers_Demo.dacpac"
+
+copy /Y "$(ProjectDir)bin\debug\HappyScoopers_Demo_Create.sql" "$(SolutionDir)output\HappyScoopers_Demo_Create.sql"</PostBuildEvent>
   </PropertyGroup>
 </Project>

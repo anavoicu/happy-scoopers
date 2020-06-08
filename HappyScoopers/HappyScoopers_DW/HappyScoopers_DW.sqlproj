@@ -80,7 +80,7 @@
     <Build Include="dbo\Tables\Staging_Promotion.sql" />
     <Build Include="dbo\Tables\Staging_PaymentType.sql" />
     <Build Include="dbo\Tables\Staging_Customer.sql" />
-	<Build Include="dbo\Tables\Dim_Promotion.sql" />
+    <Build Include="dbo\Tables\Dim_Promotion.sql" />
     <Build Include="dbo\Tables\Dim_Product.sql" />
     <Build Include="dbo\Tables\Dim_PaymentType.sql" />
     <Build Include="dbo\Tables\Dim_Location.sql" />
@@ -90,7 +90,7 @@
     <Build Include="dbo\Tables\Fact_Sales.sql" />
     <Build Include="int\Tables\Lineage.sql" />
     <Build Include="int\Tables\IncrementalLoads.sql" />
-	<Build Include="dbo\Views\vw_Products.sql" />
+    <Build Include="dbo\Views\vw_Products.sql" />
     <Build Include="dbo\Views\vw_Location.sql" />
     <Build Include="dbo\Views\vw_Employees.sql" />
     <Build Include="dbo\Stored Procedures\Load_FactSales.sql" />
@@ -129,4 +129,7 @@
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>
   </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(ProjectDir)bin\debug\HappyScoopers_DW_Create.sql" "$(SolutionDir)output\HappyScoopers_DW_Create.sql"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
